@@ -5,7 +5,15 @@
 # s= 750км
 # Output:
 # 2
-import math
+
+
+# import math
+# n = int (input ('Количество км в день: '))
+# s = int (input ('Количество км: '))
+# print(math.ceil(s/n))
+
+#решение без math
 n = int (input ('Количество км в день: '))
 s = int (input ('Количество км: '))
-print(math.ceil(s/n))
+day = (s+(n-1))//n
+print(f"{day} - столько дней будет ехать машина")
