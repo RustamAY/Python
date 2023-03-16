@@ -18,6 +18,7 @@ else:
             zero += 1
         else:
             one += 1
+print()
 if zero < one:
     print(zero)
 else:
