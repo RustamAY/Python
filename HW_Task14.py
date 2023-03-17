@@ -7,6 +7,6 @@ if number < 0:
     print('Ввели отрицательное число!')
 else:
     square = 1
-    while square < number:
-      print(square, end=' ')
-      square = square * 2
+    while 2**square <= number:
+        print(2**square)
+        square += 1
