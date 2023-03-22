@@ -26,3 +26,13 @@ while n != 0:
     if max_number < n:
         max_number = n
 print(max_number)
+
+print("Honey, what's your hurry", end='?')
+
+print("Remember not to get too close to stars", end=="")
+
+print("Remember not to get too close to stars", "They're never gonna give you love like ours", sepp=" ")
+
+print("Told you not to worry", "But maybe that's a lie", sep=' :) ')
+
+print("The world's a little blurry", "Or maybe it's my eyes", end='!!!', sep=' :) ')
