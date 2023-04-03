@@ -16,5 +16,7 @@ def sum_del(num):
     return sum_a
 
 num = int(input('Введите k: '))
-for el in range(1, num):
-    first_sum = sum_del(el)
+for first_num in range(1, num):
+    second_num = sum_del(first_num)
+    if sum_del(second_num) == first_num and first_num != second_num and first_num > second_num:
+        print(first_num, second_num)
