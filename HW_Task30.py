@@ -4,5 +4,7 @@
 # Каждое число вводится с новой строки.
 
 a1, d, n = list(map(int, input('Введите числа через пробел: ').split()))
+list_1 =[]
 for i in range(n):
-    print(a1 + i * d)
+    list_1.append(a1 + i * d)
+print(list_1)
