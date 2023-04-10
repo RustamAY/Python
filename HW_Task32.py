@@ -10,21 +10,3 @@
 #         list_2.append(i)
 # print(list_2)
 
-def count_vowels(word):
-    vowels = "aeiouAEIOU"
-    count = 0
-    for char in word:
-        if char in vowels:
-            count += 1
-    return count
-
-def check_rhythm(poem):
-    phrases = poem.split()
-    syllable_counts = [count_vowels(phrase.replace('-', '')) for phrase in phrases]
-    if len(set(syllable_counts)) == 1:
-        print("Param pam pam")
-    else:
-        print("Rhythm is not all right")
-
-poem = input("Enter the poem: ")
-check_rhythm(poem)
