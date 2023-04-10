@@ -14,3 +14,16 @@
 # 4 8 12 16 20 24
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
+
+def printOperationTable(operation, numRows=6, numColumns=6):
+    if operation(1,1)==2:
+        print(1,end='\t')
+
+    for row in range(1, numRows+1):
+        for column in range(1, numColumns+1):
+            if operation(1,1)==2:
+                column=column-1
+            print(operation(row,column), end='\t')
+        print()
+
+print(printOperationTable(lambda x, y: x*y))
