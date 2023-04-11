@@ -7,30 +7,51 @@
 # 4. Использование функций. Ваша программа не должна быть линейной
 
 def AddPerson():
-    first_name = input('Ввкдите фамилию: ')
-    last_name = input('Ввкдите имя: ')
+    first_name = input('Введите фамилию: ')
+    last_name = input('Введите имя: ')
     phone_number = input('Введите телефон: ')
-    data = open('phonebook.txt', 'w', encoding='utf-8')
-    data.writelines([first_name + ' ' + last_name + ' ' + phone_number])
+    data = open('C:\\Users\\RustamYunusov\\Desktop\\GB Course\\analytics\\Python\\Files\\phonebook.txt', 'a', encoding='utf-8')
+    data.writelines([first_name + ' ' + last_name + ' ' + phone_number, '\n'])
     data.close
 
-AddPerson()
-
 def PrintData():
-    with open ('phonebook.txt', 'r', encoding='utf-8') as data:
+    with open ('C:\\Users\\RustamYunusov\\Desktop\\GB Course\\analytics\\Python\\Files\\phonebook.txt', 'r', encoding='utf-8') as data:
         print(data.read())
 
-PrintData()
 
-def search():
+def Search():
     search_name = input('Введите данные для поиска: ')
-    with open ('phonebook.txt', 'r', encoding='utf-8') as data:
+    with open ('C:\\Users\\RustamYunusov\\Desktop\\GB Course\\analytics\\Python\\Files\\phonebook.txt', 'r', encoding='utf-8') as data:
         for line in data:
             if search_name in line:
                 print(line)
 
-search()
+def LoadData():
+    with open ('C:\\Users\\RustamYunusov\\Desktop\\GB Course\\analytics\\Python\\Files\\phonebook.txt', 'r+', encoding='utf-8') as data:
+        text_data = data.read().splitlines()
+        path = input('Введите путь к файлу: ')
+        with open(path, 'r', encoding='utf-8') as data_2:
+            for line in data_2:
+                if line[:-1] not in text_data:
+                    data.write(line)
 
-def load_data():
-    with open ('phonebook.txt', 'r', encoding='utf-8') as data:
-        path = input()
+def Ui():
+    print('''1 - добавить контакт
+2 - поиск
+3 - импорт данных
+4 - вывод консоль''')
+    user_input = input('Выберете действие: ')
+    if user_input == '1':
+        AddPerson()
+    elif user_input == '2':
+        Search()
+    elif user_input == '3':
+        LoadData()
+    elif user_input == '4':
+        PrintData()
+
+def main():
+    Ui()
+
+if __name__ == "__main__":
+    main()
