@@ -6,6 +6,8 @@
 # 3. Пользователь может ввести одну из характеристик для поиска определенной записи(Например имя или фамилию человека)
 # 4. Использование функций. Ваша программа не должна быть линейной
 
+import os
+
 def AddPerson():
     first_name = input('Введите фамилию: ')
     last_name = input('Введите имя: ')
@@ -28,27 +30,39 @@ def Search():
 
 def LoadData():
     with open ('C:\\Users\\RustamYunusov\\Desktop\\GB Course\\analytics\\Python\\Files\\phonebook.txt', 'r+', encoding='utf-8') as data:
-        text_data = data.read().splitlines()
+        text_data = data.read()
         path = input('Введите путь к файлу: ')
         with open(path, 'r', encoding='utf-8') as data_2:
             for line in data_2:
-                if line[:-1] not in text_data:
+                if line not in text_data:
                     data.write(line)
 
 def Ui():
+    os.system('cls')
     print('''1 - добавить контакт
 2 - поиск
 3 - импорт данных
-4 - вывод консоль''')
+4 - вывод консоль
+5 - Выход''')
     user_input = input('Выберете действие: ')
-    if user_input == '1':
-        AddPerson()
-    elif user_input == '2':
-        Search()
-    elif user_input == '3':
-        LoadData()
-    elif user_input == '4':
-        PrintData()
+    while user_input != '5':
+        if user_input == '1':
+            AddPerson()
+        elif user_input == '2':
+            Search()
+        elif user_input == '3':
+            LoadData()
+        elif user_input == '4':
+            PrintData()
+        else:
+            print('Вы ввели не корректный вариант, попробуйте еще раз!')
+        os.system('cls')
+        print('''1 - добавить контакт
+2 - поиск
+3 - импорт данных
+4 - вывод консоль
+5 - Выход''')
+        user_input = input('Выберете действие: ')
 
 def main():
     Ui()
